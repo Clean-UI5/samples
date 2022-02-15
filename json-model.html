@@ -1,0 +1,134 @@
+<!DOCTYPE HTML>
+<html>
+  <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta charset="utf-8">
+    <title>Just a Button</title>
+    <script src="https://ui5.sap.com/resources/sap-ui-core.js"
+      id="sap-ui-bootstrap"
+      data-sap-ui-libs="sap.m,sap.ui.layout"
+      data-sap-ui-theme="sap_fiori_3"
+      data-sap-ui-async="true"></script>
+  </head>
+  <body id="content" class="sapUiBody">
+  </body>
+  <script language="JavaScript">
+sap.ui.require([
+  'sap/ui/core/Fragment',
+  'sap/ui/model/json/JSONModel',
+  'sap/m/MessageToast',
+  'sap/m/Button'
+], async function (Fragment, JSONModel, MessageToast, Button) {
+
+  function xfrag (xmlContent) {
+    return Fragment.load({
+      type: 'XML',
+      definition: `
+<core:FragmentDefinition
+  xmlns:core="sap.ui.core"
+>
+  ${xmlContent}
+</core:FragmentDefinition>`
+    });
+  }
+  
+  const view = await xfrag`
+<f:SimpleForm
+  xmlns="sap.m"
+  xmlns:f="sap.ui.layout.form"
+  xmlns:core="sap.ui.core"
+
+  title="Reactive JSON Model example"
+  layout="ResponsiveGridLayout"
+  labelSpanXL="3"
+  labelSpanL="3"
+  labelSpanM="3"
+  labelSpanS="12"
+  adjustLabelSpan="false"
+  emptySpanXL="4"
+  emptySpanL="4"
+  emptySpanM="4"
+  emptySpanS="0"
+  columnsXL="1"
+  columnsL="1"
+  columnsM="1"
+  singleContainerFullSize="false"  
+>
+  <f:content>
+    <Label text="Name (defaulted if not changed)" />
+    <Input value="{/name}" />
+    <Label text="Year" />
+    <Select selectedKey="{/year}">
+      <core:Item key="2022" text="2022" />
+      <core:Item key="2023" text="2023" />
+      <core:Item key="2024" text="2024" />
+      <core:Item key="2025" text="2025" />
+      <core:Item key="2026" text="2026" />
+    </Select>    
+    <Label text="Organization" />
+    <Input value="{/org}"/>
+  </f:content>
+</f:SimpleForm>
+`;
+
+  class ViewState {
+    #name
+    #year
+    #org
+    #model
+
+    get name () {
+      if (this.#name) {
+        return this.#name;
+      }
+      return `${this.#org} (${this.#year})`;
+    }
+
+    set name (value) {
+      this.#name = value;
+    }
+    
+    get year () {
+      return this.#year;
+    }
+    
+    set year (value) {
+      this.#year = value;
+      this.model.refresh();
+    }
+
+    get org () {
+      return this.#org;
+    }
+    
+    set org (value) {
+      this.#org = value;
+      this.model.refresh();
+    }
+
+    get model () {
+      return this.#model;
+    }
+    
+    constructor (org, year) {
+      this.#org = org;
+      this.#year = year;
+      this.#model = new JSONModel(this);
+    }
+  }
+  
+  const viewState = new ViewState('Clean UI5', 2022);
+  const saveButton = new Button({
+    text: 'Save',
+    press: () => {
+      MessageToast.show(`Name : ${viewState.name}
+Year : ${viewState.year}
+Organization : ${viewState.org}`);
+    }
+  });
+  view.addContent(saveButton);
+  view.setModel(viewState.model);
+  view.placeAt('content');
+});
+  </script>
+</html>

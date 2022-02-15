@@ -1,0 +1,65 @@
+<!DOCTYPE HTML>
+<html>
+  <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta charset="utf-8">
+    <title>Message Box</title>
+    <script src="https://ui5.sap.com/resources/sap-ui-core.js"
+      id="sap-ui-bootstrap"
+      data-sap-ui-libs="sap.m"
+      data-sap-ui-theme="sap_fiori_3"
+      data-sap-ui-compatVersion="edge"></script>
+  </head>
+  <body id="content" class="sapUiBody">
+  </body>
+  <script language="JavaScript">
+sap.ui.require([
+  'sap/m/Button',
+  'sap/m/Toolbar',
+  'sap/m/MessageBox'
+], async function (Button, Toolbar, MessageBox) {
+
+  function messageBox (label, options) {
+    return new Promise((resolve) => {
+      MessageBox.show(label, {
+        title: 'My application',
+        icon: MessageBox.Icon.INFORMATION,
+        ...options,
+        closeOnNavigation: true,
+        onClose: resolve
+      });
+   });
+  }
+
+  const toolbar = new Toolbar({
+    content: [
+      new Button({
+        text: 'Info',
+        press: () => {
+          messageBox('Hello World !');
+        }
+      }),
+      new Button({
+        text: 'Error',
+        press: () => {
+          messageBox('Error', { icon: MessageBox.Icon.ERROR });
+        }
+      }),
+      new Button({
+        text: 'Question',
+        press: () => {
+          messageBox('Please answer', {
+            icon: sap.m.MessageBox.Icon.QUESTION,
+            actions: [MessageBox.Action.YES, MessageBox.Action.NO],
+            emphasizedAction: MessageBox.Action.YES
+          })
+            .then((answer) => messageBox(answer || '--none--', { title: 'Your answer' }));
+        }
+      })
+    ]
+  })
+
+  toolbar.placeAt('content');
+});
+  </script>
+</html>

@@ -38,11 +38,12 @@ sap.ui.require([
       const specialInstructionsAckInfo = this.byId('siAckInfo');
       specialInstructionsAckInfo.setVisible(specialInstructionsAcknowledged);
       if (salesOrder.amount > threshold && salesOrder.customer.vip) {
-        specialInstructions.setVisible(true);
         if (specialInstructionsAcknowledged) {
+          specialInstructions.setVisible(false);
           finalizeReview.setEnabled(true);
           acknowledgeSI.setVisible(false);
         } else {
+          specialInstructions.setVisible(true);
           finalizeReview.setEnabled(false);
           acknowledgeSI.setVisible(true);
         }
@@ -171,7 +172,7 @@ sap.ui.require([
       specialInstruction: {}
     });
     checkUIState(assert, this.controller, {
-      specialInstructionsIsVisible: true,
+      specialInstructionsIsVisible: false,
       finalizeReviewIsEnabled: true,
       acknowledgeSIIsVisible: false,
       specialInstructionsAckInfoIsVisible: true

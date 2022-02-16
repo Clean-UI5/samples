@@ -7,3 +7,4 @@ Clean UI5 book samples
 * [value state](https://clean-ui5.github.io/samples/value-state)
 * [reactive JSON model](https://clean-ui5.github.io/samples/json-model)
 * [special instructions](https://clean-ui5.github.io/samples/special-instructions)
+* [controller unit test](https://clean-ui5.github.io/samples/unit-test-controller)

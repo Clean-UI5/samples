@@ -103,12 +103,18 @@ sap.ui.require([
     siRequired: false,
     siAcknowledged: false
   });
-  viewState.attachPropertyChange((event) => {
-    const { path, value } = event.getParameters();
-    if (path === '/siAcknowledged') {
-      defaultModel.setProperty('/specialInstruction', value ? {} : undefined);
+
+  function simulateSpecialInstruction () {
+    let specialInstruction;
+    if (viewState.getProperty('/siAcknowledged')) {
+      specialInstruction = {};
+    } else {
+      specialInstruction = null;
     }
-  });
+    defaultModel.setProperty('/specialInstruction', specialInstruction);
+  }
+
+  viewState.attachPropertyChange(simulateSpecialInstruction);
 
   function mount () {
     view.setModel(defaultModel);
@@ -125,6 +131,10 @@ sap.ui.require([
   const core = sap.ui.getCore();
   core.byId('mount').attachPress(mount);
   core.byId('unmount').attachPress(unmount);
+  core.byId('ackSI').attachPress(() => {
+    viewState.setProperty('/siAcknowledged', true);
+    simulateSpecialInstruction();
+  });
   
   mount();
   view.placeAt('content');

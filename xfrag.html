@@ -1,41 +1,6 @@
 <!DOCTYPE HTML>
 <html>
   <head>
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta charset="utf-8">
-    <title>Just a Button</title>
-    <script src="https://ui5.sap.com/resources/sap-ui-core.js"
-      id="sap-ui-bootstrap"
-      data-sap-ui-libs="sap.m"
-      data-sap-ui-theme="sap_fiori_3"
-      data-sap-ui-compatVersion="edge"></script>
+    <meta http-equiv="refresh" content="0;url=/index.html?xfrag">
   </head>
-  <body id="content" class="sapUiBody">
-  </body>
-  <script language="JavaScript">
-sap.ui.require([
-  'sap/ui/core/Fragment'
-], async function (Fragment) {
-  function xfrag (xmlContent) {
-    return Fragment.load({
-      type: 'XML',
-      definition: `
-<core:FragmentDefinition
-  xmlns:core="sap.ui.core"
->
-  ${xmlContent}
-</core:FragmentDefinition>`
-    });
-  }
-
-  const button = await xfrag`
-<m:Button xmlns:m="sap.m"
-  id="helloButton"
-  class="sapUiLargeMargin"
-  text="Hello World"
-/>`;
-  button.attachPress(() => alert('Hello'));
-  button.placeAt('content');
-});
-  </script>
 </html>

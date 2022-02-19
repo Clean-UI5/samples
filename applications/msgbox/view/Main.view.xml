@@ -1,0 +1,24 @@
+<mvc:View
+  controllerName="samples.applications.msgbox.controller.Main"
+  xmlns:mvc="sap.ui.core.mvc"
+  xmlns="sap.m"
+  xmlns:app="hpa.cei.calendar.controls"
+  xmlns:core="sap.ui.core"
+
+  displayBlock="true"
+>
+  <App>
+    <pages>
+      <Page id="page">
+        <customHeader>
+          <Toolbar>
+            <Title text="{i18n>app.title}" />
+            <Button text="{i18n>btn.info}" press="onInfo" />
+            <Button text="{i18n>btn.error}" press="onError" />
+            <Button text="{i18n>btn.question}" press="onQuestion" />
+          </Toolbar>
+        </customHeader>
+      </Page>
+    </pages>
+ </App>
+</mvc:View>

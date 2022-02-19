@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html class="sapUShellFullHeight">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html;charset=UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+     <meta http-equiv="Content-Security-Policy" content="default-src 'self' ; script-src 'self' https://ui5.sap.com ; style-src 'self' 'unsafe-inline' https://ui5.sap.com ; font-src 'self' https://ui5.sap.com ; img-src 'self' data: https://ui5.sap.com ; media-src 'self' https://ui5.sap.com ; object-src 'self' ; frame-src 'self' ; worker-src 'self' ; child-src 'self' ; connect-src 'self' https://ui5.sap.com ; base-uri 'self'" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <link rel="stylesheet" href="https://ui5.sap.com/resources/sap/ui/core/themes/sap_fiori_3/library.css" id="sap-ui-theme-sap.ui.core"/>
+    <link rel="stylesheet" href="https://ui5.sap.com/resources/sap/m/themes/sap_fiori_3/library.css" id="sap-ui-theme-sap.m"/>
+    <meta name="sap.ushellConfig.crossPlatformDefaults" content='{
+      "services": {
+        "Container": {
+          "adapter": {
+            "config": {
+              "systemProperties": {
+              },
+              "userProfile": {
+                "metadata": {
+                  "editablePropterties": [
+                    "accessibility",
+                    "contentDensity",
+                    "theme"
+                  ],
+                  "ranges": {
+                    "theme": {
+                      "sap_belize": {
+                        "displayName": "SAP Belize",
+                        "themeRoot": ""
+                      },
+                      "sap_belize_plus":  {
+                        "displayName": "SAP Belize Plus",
+                        "themeRoot": ""
+                      },
+                      "sap_fiori_3_hcb": {
+                        "displayName": "SAP Quartz HCB",
+                        "themeRoot": ""
+                      },
+                      "sap_fiori_3_hcw": {
+                        "displayName": "SAP Quartz HCW",
+                        "themeRoot": ""
+                      },
+                      "sap_fiori_3": {
+                        "displayName": "SAP Quartz",
+                        "themeRoot": ""
+                      }
+                    }
+                  }
+                },
+                "defaults": {
+                  "email": "john.doe@sap.com",
+                  "firstName": "John",
+                  "lastName": "Doe",
+                  "fullName": "John Doe",
+                  "id": "DOEJ",
+                  "language": "EN",
+                  "languageBcp47": "en",
+                  "sapDateFormat": "1",
+                  "tislcal": [],
+                  "numberFormat": "",
+                  "rtl": false,
+                  "sapTimeFormat": "0",
+                  "timeZone": "CET"
+                }
+              },
+              "userProfilePersonalization": {
+                "sapDateFormat": "1",
+                "theme": "sap_fiori_3",
+                "sapTimeFormat": "0",
+                "timeZone": "UTC",
+                "contentDensity": "cozy"
+              }
+            }
+          }
+        },
+        "CommonDataModel": {
+          "adapter": {
+            "config": {
+              "ignoreSiteDataPersonalization": true,
+              "siteDataUrl": "cdm/config.json",
+              "allowSiteSourceFromURLParameter": true
+            }
+          }
+        },
+        "LaunchPage": {
+          "adapter": {
+            "module": "sap.ushell.adapters.cdm.v3.LaunchPageAdapter"
+          }
+        },
+        "Search": {
+          "adapter": {
+            "module": "sap.ushell.adapters.local.SearchAdapter"
+          }
+        },
+        "Ui5ComponentLoader": {
+          "config": {
+            "amendedLoading": true
+          },
+          "adapter": {
+            "module": "sap.ushell.adapters.local.Ui5ComponentLoaderAdapter"
+          }
+        }
+      }
+    }' />
+    <title>Clean-UI5 Samples</title>
+    <script id="sap-ui-bootstrap"
+      src="https://ui5.sap.com/resources/sap/ushell/bootstrap/cdm.js"
+      data-sap-ui-flexibilityservices='[{"connector": "LocalStorageConnector"}]',
+      data-sap-ui-resourceroots='{
+        "samples": "./"
+      }',
+      data-sap-ui-oninit="module:samples/cdm/init"
+      data-sap-ui-async="true">
+    </script>
+  </head>
+  <body class="sapUiBody">
+    <div id="canvas">
+      <div class="sapMShellBG sapUiGlobalBackgroundImage">
+      </div>
+    </div>
+  </body>
+</html>

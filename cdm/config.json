@@ -1,0 +1,191 @@
+{
+  "_version": "3.0.0",
+  "site": {
+    "identification": {
+      "version": "3.1",
+      "id": "c9dcc1f3-dec0-4db4-91d3-639bf38d91ce",
+      "title": "Clean-UI5 Samples",
+      "description": "Clean-UI5 Samples"
+    },
+    "payload": {
+      "homeApp": {
+        "semanticObject": "Shell",
+        "action": "home"
+      },
+      "config": {
+        "ushellConfig": {
+          "renderers": {
+            "fiori2": {
+              "componentData": {
+                "config": {
+                  "enableSearch": false
+                }
+              }
+            }
+          }
+        }
+      },
+      "groupsOrder": [
+        "JavaScript_and_SAPUI5"
+      ]
+    }
+  },
+  "catalogs": {
+    "SampleApps": {
+      "identification": {
+        "id": "SampleApps",
+        "title": "Clean-UI5 Samples"
+      },
+      "payload": {
+        "viz": [
+          "xfrag",
+          "msgbox"
+        ]
+      }
+    }
+  },
+  "vizTypes": {
+  },
+  "visualizations": {
+    "xfrag": {
+      "vizType": "sap.ushell.StaticAppLauncher",
+      "businessApp": "samples.applications.xfrag",
+      "vizConfig": {
+        "sap.flp": {
+          "target": {
+            "appId": "samples.applications.xfrag",
+            "inboundId": "sample-xfrag",
+            "parameters": {}
+          }
+        }
+      }
+    },
+    "msgbox": {
+      "vizType": "sap.ushell.StaticAppLauncher",
+      "businessApp": "samples.applications.msgbox",
+      "vizConfig": {
+        "sap.flp": {
+          "target": {
+            "appId": "samples.applications.msgbox",
+            "inboundId": "sample-msgbox",
+            "parameters": {}
+          }
+        }
+      }
+    }
+  },
+  "applications": {
+    "samples.applications.xfrag": {
+      "sap.app": {
+        "id": "samples.applications.xfrag",
+        "applicationVersion": {
+          "version": "1.0.0"
+        },
+        "title": "xfrag",
+        "subTitle": "Literal XML fragments",
+        "crossNavigation": {
+          "inbounds": {
+            "sample-xfrag": {
+              "semanticObject": "sample",
+              "action": "xfrag",
+              "signature": {
+                "parameters": {},
+                "additionalParameters": "allowed"
+              }
+            }
+          }
+        }
+      },
+      "sap.ui5": {
+        "models": {},
+        "componentName": "samples.applications.xfrag"
+      },
+      "sap.flp": {
+        "businessApp": "samples.applications.xfrag",
+        "defaultLauncher": "sample-xfrag"
+      },
+      "sap.ui": {
+        "technology": "UI5",
+        "icons": {
+          "icon": "sap-icon://developer-settings"
+        },
+        "deviceTypes": {
+          "desktop": true,
+          "tablet": true,
+          "phone": true
+        }
+      },
+      "sap.platform.runtime": {
+        "componentProperties": {
+          "url": "applications/xfrag"
+        }
+      }
+    },
+    "samples.applications.msgbox": {
+      "sap.app": {
+        "id": "samples.applications.msgbox",
+        "applicationVersion": {
+          "version": "1.0.0"
+        },
+        "title": "msgbox",
+        "subTitle": "messageBox helper",
+        "crossNavigation": {
+          "inbounds": {
+            "sample-msgbox": {
+              "semanticObject": "sample",
+              "action": "msgbox",
+              "signature": {
+                "parameters": {},
+                "additionalParameters": "allowed"
+              }
+            }
+          }
+        }
+      },
+      "sap.ui5": {
+        "models": {},
+        "componentName": "samples.applications.msgbox"
+      },
+      "sap.flp": {
+        "businessApp": "samples.applications.msgbox",
+        "defaultLauncher": "sample-msgbox"
+      },
+      "sap.ui": {
+        "technology": "UI5",
+        "icons": {
+          "icon": "sap-icon://popup-window"
+        },
+        "deviceTypes": {
+          "desktop": true,
+          "tablet": true,
+          "phone": true
+        }
+      },
+      "sap.platform.runtime": {
+        "componentProperties": {
+          "url": "applications/msgbox"
+        }
+      }
+    }
+  },
+  "groups": {
+    "JavaScript_and_SAPUI5": {
+      "identification": {
+        "id": "JavaScript_and_SAPUI5",
+        "title": "JavaScript and SAPUI5"
+      },
+      "payload": {
+        "tiles": [{
+          "id": "00000",
+          "vizId": "xfrag"
+        }, {
+          "id": "00001",
+          "vizId": "msgbox"
+        }],
+        "links": [],
+        "groups": []
+      }
+    }
+  },
+  "systemAliases": {}
+}

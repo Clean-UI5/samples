@@ -2,7 +2,7 @@ sap.ui.define([
   'samples/util/BaseController',
   'samples/util/messageBox',
   'samples/util/asyncEventHandler',
-  'sap/m/MessageBox',
+  'sap/m/MessageBox'
 ], function (BaseController, messageBox, asyncEventHandler, MessageBox) {
   return BaseController.extend('samples.applications.msgbox.controller.Main', {
     onInfo: asyncEventHandler(async function () {

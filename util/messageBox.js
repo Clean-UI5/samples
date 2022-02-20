@@ -10,6 +10,6 @@ sap.ui.define([
         closeOnNavigation: true,
         onClose: resolve
       });
-   });
+    });
   };
 });

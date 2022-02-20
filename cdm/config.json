@@ -3,7 +3,7 @@
   "site": {
     "identification": {
       "version": "3.1",
-      "id": "c9dcc1f3-dec0-4db4-91d3-639bf38d91ce",
+      "id": "6d90b4b6-8890-4468-a4b9-79d334b7e55e",
       "title": "Clean-UI5 Samples",
       "description": "Clean-UI5 Samples"
     },
@@ -26,7 +26,8 @@
         }
       },
       "groupsOrder": [
-        "JavaScript_and_SAPUI5"
+        "JavaScript_and_SAPUI5",
+        "Others"
       ]
     }
   },
@@ -182,6 +183,17 @@
           "id": "00001",
           "vizId": "msgbox"
         }],
+        "links": [],
+        "groups": []
+      }
+    },
+    "Others": {
+      "identification": {
+        "id": "Others",
+        "title": "Others"
+      },
+      "payload": {
+        "tiles": [],
         "links": [],
         "groups": []
       }

@@ -23,6 +23,20 @@ sap.ui.require([
   lazyLogoPatcher();
   sap.ui.getCore().attachThemeChanged(lazyLogoPatcher);
 
+  const renderer = sap.ushell.Container.getRenderer('fiori2');
+  renderer.addUserAction({
+    controlType: 'sap.m.Button',
+    oControlProperties: {
+      icon: 'sap-icon://source-code',
+      text: 'Fork me on GitHub',
+      press: () => {
+        sap.m.URLHelper.redirect('https://github.com/Clean-UI5/samples', true);
+      }
+    },
+    bIsVisible: true,
+    bCurrentState: false
+  });
+
   if (window.location.search) {
     const sample = /\?(\w+)/.exec(window.location.search)[1];
     history.replaceState('', 'Clean-UI5 samples', 'index.html')

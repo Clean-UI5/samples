@@ -1,0 +1,13 @@
+<mvc:View
+  controllerName="samples.applications._template.controller.Main"
+  xmlns:mvc="sap.ui.core.mvc"
+  xmlns="sap.m"
+  displayBlock="true"
+>
+  <App>
+    <pages>
+      <Page id="page" title="{i18n>app.title}">
+      </Page>
+    </pages>
+ </App>
+</mvc:View>

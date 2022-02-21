@@ -1,0 +1,23 @@
+<mvc:view
+  xmlns:mvc="sap.ui.core.mvc"
+  xmlns:m="sap.m"
+>
+  <m:Button id="finalizeReview"
+    enabled="{= !(${amount} &gt; ${si>/threshold} &amp;&amp; ${customer/vip})
+                || !!${specialInstruction}
+             }"
+  />
+  <m:MessageStrip id="siContent"
+    visible="{= ${amount} &gt; ${si>/threshold} &amp;&amp; ${customer/vip}
+                &amp;&amp; !${specialInstruction}
+             }"
+  />
+  <m:Button id="ackSI"
+    visible="{= ${amount} &gt; ${si>/threshold} &amp;&amp; ${customer/vip}
+                &amp;&amp; !${specialInstruction}
+             }"
+  />
+  <m:MessageStrip id="siAckInfo"
+    visible="{= !!${specialInstruction} }"
+  />
+</mvc:view>

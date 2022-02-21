@@ -6,8 +6,9 @@ const cdmConfig = require('./cdm/config.json');
 let targetGroupId;
 let tileId = 0;
 Object.keys(cdmConfig.groups).forEach((groupId) => {
-  const group = cdmConfig.groups[groupId]
-  if (group.identification.title.toLowerCase() === groupName.toLowerCase()) {
+  const group = cdmConfig.groups[groupId];
+  const { id, title } = group.identification;
+  if ([id, title].map(s => s.toLowerCase()).includes(groupName.toLowerCase())) {
     targetGroupId = groupId;
   }
   group.payload.tiles.forEach((tile) => {

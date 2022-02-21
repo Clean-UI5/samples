@@ -40,13 +40,13 @@
       "payload": {
         "viz": [
           "xfrag",
-          "msgbox"
+          "msgbox",
+          "rjsmdl"
         ]
       }
     }
   },
-  "vizTypes": {
-  },
+  "vizTypes": {},
   "visualizations": {
     "xfrag": {
       "vizType": "sap.ushell.StaticAppLauncher",
@@ -69,6 +69,19 @@
           "target": {
             "appId": "samples.applications.msgbox",
             "inboundId": "sample-msgbox",
+            "parameters": {}
+          }
+        }
+      }
+    },
+    "rjsmdl": {
+      "vizType": "sap.ushell.StaticAppLauncher",
+      "businessApp": "samples.applications.rjsmdl",
+      "vizConfig": {
+        "sap.flp": {
+          "target": {
+            "appId": "samples.applications.rjsmdl",
+            "inboundId": "sample-rjsmdl",
             "parameters": {}
           }
         }
@@ -167,6 +180,52 @@
           "url": "applications/msgbox"
         }
       }
+    },
+    "samples.applications.rjsmdl": {
+      "sap.app": {
+        "id": "samples.applications.rjsmdl",
+        "applicationVersion": {
+          "version": "1.0.0"
+        },
+        "title": "rjsmdl",
+        "subTitle": "Reactive JSON model",
+        "crossNavigation": {
+          "inbounds": {
+            "sample-rjsmdl": {
+              "semanticObject": "sample",
+              "action": "rjsmdl",
+              "signature": {
+                "parameters": {},
+                "additionalParameters": "allowed"
+              }
+            }
+          }
+        }
+      },
+      "sap.ui5": {
+        "models": {},
+        "componentName": "samples.applications.rjsmdl"
+      },
+      "sap.flp": {
+        "businessApp": "samples.applications.rjsmdl",
+        "defaultLauncher": "sample-rjsmdl"
+      },
+      "sap.ui": {
+        "technology": "UI5",
+        "icons": {
+          "icon": "sap-icon://activate"
+        },
+        "deviceTypes": {
+          "desktop": true,
+          "tablet": true,
+          "phone": true
+        }
+      },
+      "sap.platform.runtime": {
+        "componentProperties": {
+          "url": "applications/rjsmdl"
+        }
+      }
     }
   },
   "groups": {
@@ -176,13 +235,20 @@
         "title": "JavaScript and SAPUI5"
       },
       "payload": {
-        "tiles": [{
-          "id": "00000",
-          "vizId": "xfrag"
-        }, {
-          "id": "00001",
-          "vizId": "msgbox"
-        }],
+        "tiles": [
+          {
+            "id": "00000",
+            "vizId": "xfrag"
+          },
+          {
+            "id": "00001",
+            "vizId": "msgbox"
+          },
+          {
+            "id": "00002",
+            "vizId": "rjsmdl"
+          }
+        ],
         "links": [],
         "groups": []
       }

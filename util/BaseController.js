@@ -2,7 +2,7 @@ sap.ui.define([
   'sap/ui/core/mvc/Controller',
   'sap/base/Log'
 ], function (Controller, Log) {
-  return Controller.extend('samples.util.BaseController', {
+  const BaseController = Controller.extend('samples.util.BaseController', {
     i18n: async function (key, ...args) {
       let resourceBundle;
       try {
@@ -20,4 +20,14 @@ sap.ui.define([
       }
     }
   });
+
+  Object.defineProperties(BaseController.prototype, {
+    view: {
+      get: function () {
+        return this.getView();
+      }
+    }
+  });
+
+  return BaseController;
 });

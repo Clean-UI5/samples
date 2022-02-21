@@ -9,5 +9,5 @@
       <Page id="page" title="{i18n>app.title}">
       </Page>
     </pages>
- </App>
+  </App>
 </mvc:View>

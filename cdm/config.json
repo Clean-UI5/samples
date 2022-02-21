@@ -27,6 +27,7 @@
       },
       "groupsOrder": [
         "JavaScript_and_SAPUI5",
+        "Modules_and_Classes",
         "Others"
       ]
     }
@@ -42,7 +43,9 @@
           "xfrag",
           "msgbox",
           "vstate",
-          "rjsmdl"
+          "rjsmdl",
+          "utctrl",
+          "utview"
         ]
       }
     }
@@ -96,6 +99,32 @@
           "target": {
             "appId": "samples.applications.vstate",
             "inboundId": "sample-vstate",
+            "parameters": {}
+          }
+        }
+      }
+    },
+    "utctrl": {
+      "vizType": "sap.ushell.StaticAppLauncher",
+      "businessApp": "samples.applications.utctrl",
+      "vizConfig": {
+        "sap.flp": {
+          "target": {
+            "appId": "samples.applications.utctrl",
+            "inboundId": "sample-utctrl",
+            "parameters": {}
+          }
+        }
+      }
+    },
+    "utview": {
+      "vizType": "sap.ushell.StaticAppLauncher",
+      "businessApp": "samples.applications.utview",
+      "vizConfig": {
+        "sap.flp": {
+          "target": {
+            "appId": "samples.applications.utview",
+            "inboundId": "sample-utview",
             "parameters": {}
           }
         }
@@ -286,6 +315,98 @@
           "url": "applications/rjsmdl"
         }
       }
+    },
+    "samples.applications.utctrl": {
+      "sap.app": {
+        "id": "samples.applications.utctrl",
+        "applicationVersion": {
+          "version": "1.0.0"
+        },
+        "title": "utctrl",
+        "subTitle": "Controller unit test",
+        "crossNavigation": {
+          "inbounds": {
+            "sample-utctrl": {
+              "semanticObject": "sample",
+              "action": "utctrl",
+              "signature": {
+                "parameters": {},
+                "additionalParameters": "allowed"
+              }
+            }
+          }
+        }
+      },
+      "sap.ui5": {
+        "models": {},
+        "componentName": "samples.applications.utctrl"
+      },
+      "sap.flp": {
+        "businessApp": "samples.applications.utctrl",
+        "defaultLauncher": "sample-utctrl"
+      },
+      "sap.ui": {
+        "technology": "UI5",
+        "icons": {
+          "icon": "sap-icon://approvals"
+        },
+        "deviceTypes": {
+          "desktop": true,
+          "tablet": true,
+          "phone": true
+        }
+      },
+      "sap.platform.runtime": {
+        "componentProperties": {
+          "url": "applications/utctrl"
+        }
+      }
+    },
+    "samples.applications.utview": {
+      "sap.app": {
+        "id": "samples.applications.utview",
+        "applicationVersion": {
+          "version": "1.0.0"
+        },
+        "title": "utview",
+        "subTitle": "View unit test",
+        "crossNavigation": {
+          "inbounds": {
+            "sample-utview": {
+              "semanticObject": "sample",
+              "action": "utview",
+              "signature": {
+                "parameters": {},
+                "additionalParameters": "allowed"
+              }
+            }
+          }
+        }
+      },
+      "sap.ui5": {
+        "models": {},
+        "componentName": "samples.applications.utview"
+      },
+      "sap.flp": {
+        "businessApp": "samples.applications.utview",
+        "defaultLauncher": "sample-utview"
+      },
+      "sap.ui": {
+        "technology": "UI5",
+        "icons": {
+          "icon": "sap-icon://approvals"
+        },
+        "deviceTypes": {
+          "desktop": true,
+          "tablet": true,
+          "phone": true
+        }
+      },
+      "sap.platform.runtime": {
+        "componentProperties": {
+          "url": "applications/utview"
+        }
+      }
     }
   },
   "groups": {
@@ -311,6 +432,26 @@
           {
             "id": "00003",
             "vizId": "rjsmdl"
+          }
+        ],
+        "links": [],
+        "groups": []
+      }
+    },
+    "Modules_and_Classes": {
+      "identification": {
+        "id": "Modules_and_Classes",
+        "title": "Modules and Classes"
+      },
+      "payload": {
+        "tiles": [
+          {
+            "id": "00004",
+            "vizId": "utctrl"
+          },
+          {
+            "id": "00005",
+            "vizId": "utview"
           }
         ],
         "links": [],

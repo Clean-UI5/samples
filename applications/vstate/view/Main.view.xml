@@ -1,0 +1,49 @@
+<mvc:View
+  controllerName="samples.applications.vstate.controller.Main"
+  xmlns:mvc="sap.ui.core.mvc"
+  xmlns="sap.m"
+  xmlns:f="sap.ui.layout.form"
+  xmlns:core="sap.ui.core"
+  displayBlock="true"
+>
+  <App>
+    <pages>
+      <Page id="page" title="{i18n>app.title}">
+        <f:SimpleForm
+          layout="ResponsiveGridLayout"
+          labelSpanXL="3"
+          labelSpanL="3"
+          labelSpanM="3"
+          labelSpanS="12"
+          adjustLabelSpan="false"
+          emptySpanXL="4"
+          emptySpanL="4"
+          emptySpanM="4"
+          emptySpanS="0"
+          columnsXL="1"
+          columnsL="1"
+          columnsM="1"
+          singleContainerFullSize="false"  
+        >
+          <f:content>
+            <Label text="{i18n>form.input.label}" />
+            <Input value="Any value"
+              valueState="{/ValueState}"
+              valueStateText="{/valueStateText}"
+            />
+            <Label text="Value state" />
+            <Select selectedKey="{/ValueState}">
+              <core:Item key="None" text="None" />
+              <core:Item key="Error" text="Error" />
+              <core:Item key="Information" text="Information" />
+              <core:Item key="Success" text="Success" />
+              <core:Item key="Warning" text="Warning" />
+            </Select>    
+            <Label text="Value state text" />
+            <Input value="{/valueStateText}"/>
+          </f:content>
+        </f:SimpleForm>
+      </Page>
+    </pages>
+  </App>
+</mvc:View>

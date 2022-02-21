@@ -41,6 +41,7 @@
         "viz": [
           "xfrag",
           "msgbox",
+          "vstate",
           "rjsmdl"
         ]
       }
@@ -82,6 +83,19 @@
           "target": {
             "appId": "samples.applications.rjsmdl",
             "inboundId": "sample-rjsmdl",
+            "parameters": {}
+          }
+        }
+      }
+    },
+    "vstate": {
+      "vizType": "sap.ushell.StaticAppLauncher",
+      "businessApp": "samples.applications.vstate",
+      "vizConfig": {
+        "sap.flp": {
+          "target": {
+            "appId": "samples.applications.vstate",
+            "inboundId": "sample-vstate",
             "parameters": {}
           }
         }
@@ -181,6 +195,52 @@
         }
       }
     },
+    "samples.applications.vstate": {
+      "sap.app": {
+        "id": "samples.applications.vstate",
+        "applicationVersion": {
+          "version": "1.0.0"
+        },
+        "title": "vstate",
+        "subTitle": "Value State example",
+        "crossNavigation": {
+          "inbounds": {
+            "sample-vstate": {
+              "semanticObject": "sample",
+              "action": "vstate",
+              "signature": {
+                "parameters": {},
+                "additionalParameters": "allowed"
+              }
+            }
+          }
+        }
+      },
+      "sap.ui5": {
+        "models": {},
+        "componentName": "samples.applications.vstate"
+      },
+      "sap.flp": {
+        "businessApp": "samples.applications.vstate",
+        "defaultLauncher": "sample-vstate"
+      },
+      "sap.ui": {
+        "technology": "UI5",
+        "icons": {
+          "icon": "sap-icon://validate"
+        },
+        "deviceTypes": {
+          "desktop": true,
+          "tablet": true,
+          "phone": true
+        }
+      },
+      "sap.platform.runtime": {
+        "componentProperties": {
+          "url": "applications/vstate"
+        }
+      }
+    },
     "samples.applications.rjsmdl": {
       "sap.app": {
         "id": "samples.applications.rjsmdl",
@@ -246,6 +306,10 @@
           },
           {
             "id": "00002",
+            "vizId": "vstate"
+          },
+          {
+            "id": "00003",
             "vizId": "rjsmdl"
           }
         ],

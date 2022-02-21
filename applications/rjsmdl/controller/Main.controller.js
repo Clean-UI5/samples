@@ -7,7 +7,7 @@ sap.ui.define([
   return BaseController.extend('samples.applications.rjsmdl.controller.Main', {
     onInit: function () {
       this.viewState = new ViewState('Clean UI5', 2022);
-      this.getView().setModel(this.viewState.model);
+      this.view.setModel(this.viewState.model);
     },
 
     onSave: asyncEventHandler(async function () {

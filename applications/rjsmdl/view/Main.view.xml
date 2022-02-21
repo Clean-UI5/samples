@@ -26,9 +26,9 @@
               columnsM="1"
             >
               <f:content>
-                <Label text="Name (defaulted if not changed)" />
+                <Label text="{i18n>form.name.label}" />
                 <Input value="{/name}" />
-                <Label text="Year" />
+                <Label text="{i18n>form.year.label}" />
                 <Select selectedKey="{/year}">
                   <core:Item key="2022" text="2022" />
                   <core:Item key="2023" text="2023" />
@@ -36,7 +36,7 @@
                   <core:Item key="2025" text="2025" />
                   <core:Item key="2026" text="2026" />
                 </Select>    
-                <Label text="Organization" />
+                <Label text="{i18n>form.org.label}" />
                 <Input value="{/org}"/>
               </f:content>
             </f:SimpleForm>
@@ -45,7 +45,7 @@
         <footer>
           <OverflowToolbar>
             <ToolbarSpacer/>
-            <Button text="Save" type="Accept" press="onSave" />
+            <Button text="{i18n>btn.save}" type="Accept" press="onSave" />
           </OverflowToolbar>
         </footer>
       </Page>

@@ -1,18 +1,19 @@
 sap.ui.define([
   'samples/util/BaseController',
   'samples/applications/rjsmdl/model/ViewState',
+  'samples/util/asyncEventHandler',
   'sap/m/MessageToast'
-], function (BaseController, ViewState, MessageToast) {
+], function (BaseController, ViewState, asyncEventHandler, MessageToast) {
   return BaseController.extend('samples.applications.rjsmdl.controller.Main', {
     onInit: function () {
       this.viewState = new ViewState('Clean UI5', 2022);
       this.getView().setModel(this.viewState.model);
     },
 
-    onSave: function () {
-      MessageToast.show(`Name : ${this.viewState.name}
-Year : ${this.viewState.year}
-Organization : ${this.viewState.org}`);
-    }
+    onSave: asyncEventHandler(async function () {
+      MessageToast.show(`${await this.i18n('msg.name')} : ${this.viewState.name}
+${await this.i18n('msg.year')} : ${this.viewState.year}
+${await this.i18n('msg.org')} : ${this.viewState.org}`);
+    })
   });
 });

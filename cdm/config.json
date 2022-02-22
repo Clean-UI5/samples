@@ -45,7 +45,8 @@
           "vstate",
           "rjsmdl",
           "utctrl",
-          "utview"
+          "utview",
+          "siprev"
         ]
       }
     }
@@ -125,6 +126,19 @@
           "target": {
             "appId": "samples.applications.utview",
             "inboundId": "sample-utview",
+            "parameters": {}
+          }
+        }
+      }
+    },
+    "siprev": {
+      "vizType": "sap.ushell.StaticAppLauncher",
+      "businessApp": "samples.applications.siprev",
+      "vizConfig": {
+        "sap.flp": {
+          "target": {
+            "appId": "samples.applications.siprev",
+            "inboundId": "sample-siprev",
             "parameters": {}
           }
         }
@@ -407,6 +421,52 @@
           "url": "applications/utview"
         }
       }
+    },
+    "samples.applications.siprev": {
+      "sap.app": {
+        "id": "samples.applications.siprev",
+        "applicationVersion": {
+          "version": "1.0.0"
+        },
+        "title": "siprev",
+        "subTitle": "Special Instructions preview",
+        "crossNavigation": {
+          "inbounds": {
+            "sample-siprev": {
+              "semanticObject": "sample",
+              "action": "siprev",
+              "signature": {
+                "parameters": {},
+                "additionalParameters": "allowed"
+              }
+            }
+          }
+        }
+      },
+      "sap.ui5": {
+        "models": {},
+        "componentName": "samples.applications.siprev"
+      },
+      "sap.flp": {
+        "businessApp": "samples.applications.siprev",
+        "defaultLauncher": "sample-siprev"
+      },
+      "sap.ui": {
+        "technology": "UI5",
+        "icons": {
+          "icon": "sap-icon://my-sales-order"
+        },
+        "deviceTypes": {
+          "desktop": true,
+          "tablet": true,
+          "phone": true
+        }
+      },
+      "sap.platform.runtime": {
+        "componentProperties": {
+          "url": "applications/siprev"
+        }
+      }
     }
   },
   "groups": {
@@ -452,6 +512,10 @@
           {
             "id": "00005",
             "vizId": "utview"
+          },
+          {
+            "id": "00006",
+            "vizId": "siprev"
           }
         ],
         "links": [],

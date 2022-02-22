@@ -1,0 +1,66 @@
+<mvc:View
+  controllerName="samples.applications.siprev.controller.Main"
+  xmlns:mvc="sap.ui.core.mvc"
+  xmlns="sap.m"
+  xmlns:f="sap.ui.layout.form"
+  displayBlock="true"
+>
+  <App>
+    <pages>
+      <Page id="page" title="{i18n>app.title}">
+        <customHeader>
+          <Toolbar>
+            <Title text="{i18n>app.title}" />
+            <Button text="{i18n>btn.mount}" press="onMount" />
+            <Button text="{i18n>btn.unmount}" press="onUnmount" />
+          </Toolbar>
+        </customHeader>
+        <content>
+          <f:SimpleForm
+            layout="ResponsiveGridLayout"
+            labelSpanXL="3"
+            labelSpanL="3"
+            labelSpanM="3"
+            labelSpanS="12"
+            adjustLabelSpan="false"
+            emptySpanXL="4"
+            emptySpanL="4"
+            emptySpanM="4"
+            emptySpanS="0"
+            columnsXL="1"
+            columnsL="1"
+            columnsM="1"
+            singleContainerFullSize="false"  
+          >
+            <f:content>
+              <Label text="{i18n>check.sirequired.label}" />
+              <CheckBox selected="{viewState>/siRequired}" />
+              <Label text="{i18n>check.siack.label}" />
+              <CheckBox selected="{viewState>/siAcknowledged}" />
+            </f:content>
+          </f:SimpleForm>
+          <Button id="finalizeReview"
+            enabled="{= !${viewState>/siRequired} || !!${specialInstruction} }"
+            text="{i18n>btn.finalizeReview}"
+          />
+          <MessageStrip id="siContent"
+            visible="{= ${viewState>/siRequired} &amp;&amp; !${specialInstruction} }"
+            text="{i18n>msg.siContent}"
+            type="Warning"
+            showIcon="true"
+           />
+          <Button id="ackSI"
+            visible="{= ${viewState>/siRequired} &amp;&amp; !${specialInstruction} }"
+            text="{i18n>btn.ackSI}"
+            press="onAcknowledgeSpecialInstructions"
+          />
+          <MessageStrip id="siAckInfo"
+            visible="{= !!${specialInstruction} }"
+            text="{i18n>msg.siAck}"
+            showIcon="true"
+          />
+        </content>
+      </Page>
+    </pages>
+  </App>
+</mvc:View>

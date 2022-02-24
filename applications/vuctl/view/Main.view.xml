@@ -1,0 +1,31 @@
+<mvc:View
+  controllerName="samples.applications.vuctl.controller.Main"
+  xmlns:mvc="sap.ui.core.mvc"
+  xmlns="sap.m"
+  displayBlock="true"
+>
+  <App>
+    <pages>
+      <Page id="page">
+        <customHeader>
+          <Toolbar>
+            <Title text="{i18n>app.title}" />
+            <Button text="{i18n>btn.reset}" press="onReset" />
+            <Button text="{i18n>btn.inc}" press="onIncrement" />
+            <Button text="{i18n>btn.dec}" press="onDecrement" />
+          </Toolbar>
+        </customHeader>
+        <VBox>
+          <mvc:XMLView
+            id="firstControl"
+            viewName="samples.applications.vuctl.view.Control"
+          />
+          <mvc:XMLView
+            id="secondControl"
+            viewName="samples.applications.vuctl.view.Control"
+          />
+        </VBox>
+      </Page>
+    </pages>
+  </App>
+</mvc:View>

@@ -1,0 +1,30 @@
+<mvc:View
+  controllerName="samples.applications.vuctl.controller.Control"
+  xmlns:mvc="sap.ui.core.mvc"
+  xmlns="sap.m"
+  xmlns:f="sap.ui.layout.form"
+>
+  <VBox>
+    <f:SimpleForm
+      layout="ResponsiveGridLayout"
+      labelSpanXL="3"
+      labelSpanL="3"
+      labelSpanM="3"
+      labelSpanS="12"
+      adjustLabelSpan="false"
+      emptySpanXL="4"
+      emptySpanL="4"
+      emptySpanM="4"
+      emptySpanS="0"
+      columnsXL="1"
+      columnsL="1"
+      columnsM="1"
+      singleContainerFullSize="false"  
+    >
+      <f:content>
+        <Label text="{/label}" />
+        <Input value="{/value}" type="Number" change="onChange" showClearIcon="true" />
+      </f:content>
+    </f:SimpleForm>    
+  </VBox>
+</mvc:View>

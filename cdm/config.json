@@ -46,7 +46,8 @@
           "rjsmdl",
           "utctrl",
           "utview",
-          "siprev"
+          "siprev",
+          "vuctl"
         ]
       }
     }
@@ -139,6 +140,19 @@
           "target": {
             "appId": "samples.applications.siprev",
             "inboundId": "sample-siprev",
+            "parameters": {}
+          }
+        }
+      }
+    },
+    "vuctl": {
+      "vizType": "sap.ushell.StaticAppLauncher",
+      "businessApp": "samples.applications.vuctl",
+      "vizConfig": {
+        "sap.flp": {
+          "target": {
+            "appId": "samples.applications.vuctl",
+            "inboundId": "sample-vuctl",
             "parameters": {}
           }
         }
@@ -467,6 +481,52 @@
           "url": "applications/siprev"
         }
       }
+    },
+    "samples.applications.vuctl": {
+      "sap.app": {
+        "id": "samples.applications.vuctl",
+        "applicationVersion": {
+          "version": "1.0.0"
+        },
+        "title": "vuctl",
+        "subTitle": "View as a control",
+        "crossNavigation": {
+          "inbounds": {
+            "sample-vuctl": {
+              "semanticObject": "sample",
+              "action": "vuctl",
+              "signature": {
+                "parameters": {},
+                "additionalParameters": "allowed"
+              }
+            }
+          }
+        }
+      },
+      "sap.ui5": {
+        "models": {},
+        "componentName": "samples.applications.vuctl"
+      },
+      "sap.flp": {
+        "businessApp": "samples.applications.vuctl",
+        "defaultLauncher": "sample-vuctl"
+      },
+      "sap.ui": {
+        "technology": "UI5",
+        "icons": {
+          "icon": "sap-icon://wrench"
+        },
+        "deviceTypes": {
+          "desktop": true,
+          "tablet": true,
+          "phone": true
+        }
+      },
+      "sap.platform.runtime": {
+        "componentProperties": {
+          "url": "applications/vuctl"
+        }
+      }
     }
   },
   "groups": {
@@ -516,6 +576,10 @@
           {
             "id": "00006",
             "vizId": "siprev"
+          },
+          {
+            "id": "00007",
+            "vizId": "vuctl"
           }
         ],
         "links": [],

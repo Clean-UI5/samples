@@ -26,6 +26,16 @@ sap.ui.define([
       get: function () {
         return this.getView();
       }
+    },
+    defaultModel: {
+      get: function () {
+        return this.view.getModel();
+      }
+    },
+    eventBus: {
+      get: function () {
+        return sap.ui.getCore().getEventBus();
+      }
     }
   });
 

@@ -4,7 +4,7 @@ sap.ui.define([
 ], function (BaseController, JSONModel) {
   return BaseController.extend('samples.applications.siprev.controller.Main', {
     onInit: function () {
-      this.defaultModel = new JSONModel({});
+      this.objectModel = new JSONModel({});
       this.viewState = new JSONModel({
         siRequired: false,
         siAcknowledged: false
@@ -29,15 +29,15 @@ sap.ui.define([
     },
 
     onMount: function () {
-      this.view.setModel(this.defaultModel);
+      this.defaultModel = this.objectModel;
       this.view.bindElement('/')
       this.view.setModel(this.viewState, 'viewState');
     },
   
     onUnmount: function () {
-      this.view.setModel(new JSONModel({}));
+      this.defaultModel = new JSONModel({});
       this.view.bindElement('/')
       this.view.setModel(new JSONModel({}), 'viewState');
-    }  
+    }
   });
 });

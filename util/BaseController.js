@@ -30,6 +30,9 @@ sap.ui.define([
     defaultModel: {
       get: function () {
         return this.view.getModel();
+      },
+      set: function (model) {
+        this.view.setModel(model);
       }
     },
     eventBus: {

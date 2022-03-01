@@ -1,0 +1,17 @@
+<mvc:View
+  controllerName="samples.applications.ctlcmp.controller.Main"
+  xmlns:mvc="sap.ui.core.mvc"
+  xmlns="sap.m"
+  displayBlock="true"
+>
+  <App>
+    <pages>
+      <Page id="page" title="{i18n>app.title}">
+        <VBox>
+          <Button text="{i18n>btn1.text}" press="onButton1" />
+          <Button text="{i18n>btn2.text}" press="onButton2" />
+        </VBox>
+      </Page>
+    </pages>
+  </App>
+</mvc:View>

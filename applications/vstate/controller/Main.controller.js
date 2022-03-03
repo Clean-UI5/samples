@@ -4,7 +4,7 @@ sap.ui.define([
 ], function (BaseController, JSONModel) {
   return BaseController.extend('samples.applications.vstate.controller.Main', {
     onInit: function () {
-      this.view.setModel(new JSONModel({}));
+      this.defaultModel = {};
     }
   });
 });

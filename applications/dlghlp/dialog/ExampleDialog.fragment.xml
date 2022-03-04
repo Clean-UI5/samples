@@ -6,7 +6,16 @@
     title="{i18n>dialog.title}"
   >
     <content>
-      
+      <Panel>
+        <VBox>
+          <Label text="{i18n>dialog.switch.label}" />
+          <Switch id="switch"
+            state="{/state}"
+            customTextOn="{i18n>dialog.switch.on}"
+            customTextOff="{i18n>dialog.switch.off}"
+          />
+        </VBox>
+      </Panel>
     </content>
     <beginButton>
       <Button text="{i18n>dialog.btn.OK}" press="onOK" />

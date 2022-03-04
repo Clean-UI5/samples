@@ -720,7 +720,19 @@
         "title": "Others"
       },
       "payload": {
-        "tiles": [],
+        "tiles": [
+          {
+            "id": "00010",
+            "icon": "github.png",
+            "title": "Fork me on GitHub",
+            "subTitle": "Access source codes",
+            "isBookmark": true,
+            "target": {
+              "type": "URL",
+              "url": "https://github.com/Clean-UI5/samples"
+            }
+          }
+        ],
         "links": [],
         "groups": []
       }

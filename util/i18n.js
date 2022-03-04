@@ -5,7 +5,7 @@ sap.ui.define([
     i18n: async function (key, ...args) {
       let resourceBundle;
       try {
-        resourceBundle = await this.view.getModel('i18n').getResourceBundle();
+        resourceBundle = await this.getModel('i18n').getResourceBundle();
         return resourceBundle.getText(key, args);
       } catch (e) {
         Log.error('An exception occurred while calling i18n', e.toString(), this.getMetadata().getName(), () => {

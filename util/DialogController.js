@@ -1,72 +1,104 @@
 sap.ui.define([
   'sap/ui/base/ManagedObject',
   'samples/util/i18n',
-  'sap/ui/core/Fragment'
+  'sap/ui/core/Fragment',
+  'samples/util/classModifiers/models',
+  'samples/util/classModifiers/eventBus',
+  'samples/util/classModifiers/readOnlyProperties',
+  'samples/util/asyncEventHandler'
+], function (ManagedObject, i18n, Fragment, models, eventBus, readOnlyProperties, asyncEventHandler) {
+  const $dialog = Symbol('dialog');
+  const $closed = Symbol('closed');
+  const $result = Symbol('result');
 
-], function (ManagedObject, i18n, Fragment) {
   const DialogController = ManagedObject.extend('samples.util.DialogController', {
+    metadata: {
+      properties: {
+        view: { type: 'sap.ui.core.mvc.View' },
+        width: { type: 'sap.ui.core.CSSSize' },
+        height: { type: 'sap.ui.core.CSSSize' }
+      }
+    },
     ...i18n,
 
-    constructor: function (parentView) {
-      this._parentView = parentView;
-    },
-
-    _setup: function (dialog) {
-      this._parentView.addDependent(dialog);
-      dialog.attachAfterClose(this._onAfterClose, this);
-    },
-
-    _onAfterClose: function () {
-      this._closed(this._result);
+    _setup: async function (dialog) {
+      this.getView().addDependent(dialog);
+      await this.onInit();
+      dialog.attachBeforeOpen(asyncEventHandler(async () => {
+        await this.onBeforeOpen();
+      }));
+      dialog.attachAfterOpen(asyncEventHandler(async () => {
+        await this.onAfterOpen();
+      }));
+      dialog.attachBeforeClose(asyncEventHandler(async () => {
+        await this.onBeforeClose();
+      }));
+      dialog.attachAfterClose(asyncEventHandler(async () => {
+        this[$closed](this[$result]);
+        this.onAfterClose();
+      }));
+      const inheritedExit = dialog.exit;
+      dialog.exit = () => {
+        this.onExit();
+        return inheritedExit.call(dialog);
+      };
     },
 
     _load: function () {
-      if (this._dialog === undefined) {
+      if (this[$dialog] === undefined) {
         return Fragment.load({
+          id: this.getId(),
           name: this.getMetadata().getName(),
           controller: this
-        }).then((dialog) => {
-          this._dialog = dialog;
-          this._setup(dialog);
-          return dialog;
+        }).then(async (dialog) => {
+          this[$dialog] = dialog;
+          return this._setup(dialog)
+            .then(() => dialog);
         });
       }
-      return this._dialog;
+      return this[$dialog];
     },
 
-    open: async function (settings) {
+    onInit: function () {},
+
+    onBeforeOpen: function () {},
+
+    onAfterOpen: function () {},
+
+    onBeforeClose: function () {},
+
+    onAfterClose: function () {},
+
+    open: async function () {
       const dialog = await this._load();
+      if (dialog.isOpen()) {
+        throw new Error('Already opened');
+      }
       const promise = new Promise((resolve) => {
-        this._closed = resolve;
+        this[$closed] = resolve;
       });
-      this._result = undefined;
+      delete this[$result];
       dialog.open();
       return promise;
     },
 
+    byId: function (id) {
+      return Fragment.byId(this.getId(), id);
+    },
+
     setResult: function (value) {
-      this._result = value;
+      this[$result] = value;
     }
   });
 
-  Object.defineProperties(DialogController.prototype, {
-    dialog: {
-      get: function () {
-        return this._dialog;
-      }
+  models(DialogController, function () { return this.dialog || this.view; });
+  eventBus(DialogController);
+  readOnlyProperties(DialogController, {
+    dialog: function () {
+      return this[$dialog];
     },
-    defaultModel: {
-      get: function () {
-        return this.dialog.getModel();
-      },
-      set: function (model) {
-        this.dialog.setModel(model);
-      }
-    },
-    eventBus: {
-      get: function () {
-        return sap.ui.getCore().getEventBus();
-      }
+    view: function () {
+      return this.getView();
     }
   });
 

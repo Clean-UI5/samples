@@ -1,0 +1,26 @@
+<mvc:View
+  controllerName="samples.applications.gstate.controller.Main"
+  xmlns:mvc="sap.ui.core.mvc"
+  xmlns="sap.m"
+  displayBlock="true"
+>
+  <App>
+    <pages>
+      <Page id="page">
+        <customHeader>
+          <Toolbar>
+            <Title text="{i18n>app.title}" />
+            <Button text="{i18n>btn.reset}" press="onReset" />
+          </Toolbar>
+        </customHeader>
+        <Panel>
+          <Label text="{i18n>number.label}" />
+          <ObjectNumber
+            class="sapUiSmallMarginBottom"
+            number="{/numberOfTimesOpened}"
+          />
+        </Panel>
+      </Page>
+    </pages>
+  </App>
+</mvc:View>

@@ -1,13 +1,13 @@
 {
   "_version": "1.6.0",
   "sap.app": {
-    "id": "samples.applications.vuctl",
+    "id": "samples.applications.fgctl",
     "type": "application",
     "i18n": "i18n/i18n.properties",
     "applicationVersion": {
       "version": "1.0.0"
     },
-    "title": "vuctl",
+    "title": "fgctl",
     "description": "{{app.title}}"
   },
   "sap.ui": {
@@ -35,7 +35,7 @@
   },
   "sap.ui5": {
     "rootView": {
-      "viewName": "samples.applications.vuctl.view.Main",
+      "viewName": "samples.applications.fgctl.view.Main",
       "type": "XML",
       "async": true
     },
@@ -55,7 +55,7 @@
       "i18n": {
         "type": "sap.ui.model.resource.ResourceModel",
         "settings": {
-          "bundleName": "samples.applications.vuctl.i18n.i18n"
+          "bundleName": "samples.applications.fgctl.i18n.i18n"
         }
       }
     }

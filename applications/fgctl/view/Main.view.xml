@@ -1,7 +1,8 @@
 <mvc:View
-  controllerName="samples.applications.vuctl.controller.Main"
+  controllerName="samples.applications.fgctl.controller.Main"
   xmlns:mvc="sap.ui.core.mvc"
   xmlns="sap.m"
+  xmlns:custom="samples.applications.fgctl.control"
   displayBlock="true"
 >
   <App>
@@ -16,13 +17,17 @@
           </Toolbar>
         </customHeader>
         <VBox>
-          <mvc:XMLView
+          <custom:MyControl
             id="firstControl"
-            viewName="samples.applications.vuctl.view.Control"
+            label="{i18n>firstControl.label}"
+            value="{/firstValue}"
+            change="onFirstValueChange"
           />
-          <mvc:XMLView
+          <custom:MyControl
             id="secondControl"
-            viewName="samples.applications.vuctl.view.Control"
+            label="{i18n>secondControl.label}"
+            value="{/secondValue}"
+            change="onSecondValueChange"
           />
         </VBox>
       </Page>

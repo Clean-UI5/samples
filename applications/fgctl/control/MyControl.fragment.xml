@@ -1,6 +1,5 @@
-<mvc:View
-  controllerName="samples.applications.vuctl.controller.Control"
-  xmlns:mvc="sap.ui.core.mvc"
+<core:FragmentDefinition
+  xmlns:core="sap.ui.core"
   xmlns="sap.m"
   xmlns:f="sap.ui.layout.form"
 >
@@ -22,9 +21,9 @@
       singleContainerFullSize="false"  
     >
       <f:content>
-        <Label text="{/label}" />
-        <Input value="{/value}" type="Number" change="onChange" showClearIcon="true" />
+        <Label text="{$this>/label}" />
+        <Input value="{$this>/value}" type="Number" change="onChange" showClearIcon="true" />
       </f:content>
-    </f:SimpleForm>    
+    </f:SimpleForm>
   </VBox>
-</mvc:View>
+</core:FragmentDefinition>

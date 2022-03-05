@@ -47,7 +47,7 @@
           "utctrl",
           "utview",
           "siprev",
-          "vuctl",
+          "fgctl",
           "ctlcmp",
           "dlghlp",
           "gstate"
@@ -148,14 +148,14 @@
         }
       }
     },
-    "vuctl": {
+    "fgctl": {
       "vizType": "sap.ushell.StaticAppLauncher",
-      "businessApp": "samples.applications.vuctl",
+      "businessApp": "samples.applications.fgctl",
       "vizConfig": {
         "sap.flp": {
           "target": {
-            "appId": "samples.applications.vuctl",
-            "inboundId": "sample-vuctl",
+            "appId": "samples.applications.fgctl",
+            "inboundId": "sample-fgctl",
             "parameters": {}
           }
         }
@@ -528,19 +528,19 @@
         }
       }
     },
-    "samples.applications.vuctl": {
+    "samples.applications.fgctl": {
       "sap.app": {
-        "id": "samples.applications.vuctl",
+        "id": "samples.applications.fgctl",
         "applicationVersion": {
           "version": "1.0.0"
         },
-        "title": "vuctl",
-        "subTitle": "View as a control",
+        "title": "fgctl",
+        "subTitle": "Fragment as a control",
         "crossNavigation": {
           "inbounds": {
-            "sample-vuctl": {
+            "sample-fgctl": {
               "semanticObject": "sample",
-              "action": "vuctl",
+              "action": "fgctl",
               "signature": {
                 "parameters": {},
                 "additionalParameters": "allowed"
@@ -551,11 +551,11 @@
       },
       "sap.ui5": {
         "models": {},
-        "componentName": "samples.applications.vuctl"
+        "componentName": "samples.applications.fgctl"
       },
       "sap.flp": {
-        "businessApp": "samples.applications.vuctl",
-        "defaultLauncher": "sample-vuctl"
+        "businessApp": "samples.applications.fgctl",
+        "defaultLauncher": "sample-fgctl"
       },
       "sap.ui": {
         "technology": "UI5",
@@ -570,7 +570,7 @@
       },
       "sap.platform.runtime": {
         "componentProperties": {
-          "url": "applications/vuctl"
+          "url": "applications/fgctl"
         }
       }
     },
@@ -763,7 +763,7 @@
           },
           {
             "id": "00007",
-            "vizId": "vuctl"
+            "vizId": "fgctl"
           },
           {
             "id": "00008",

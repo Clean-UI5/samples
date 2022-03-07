@@ -5,7 +5,7 @@ sap.ui.define([
     metadata: {
       properties: {
         label: { type: 'string', defaultValue: null },
-        value: { type : 'string', defaultValue: '0' }
+        value: { type: 'string', defaultValue: '0' }
       },
       events: {
         change: {}

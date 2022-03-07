@@ -7,7 +7,7 @@ sap.ui.define([
     onInit: function () {
       this.message('part1.init', OFFSET);
     },
- 
+
     onExit: function () {
       this.message('part1.exit', OFFSET);
     },

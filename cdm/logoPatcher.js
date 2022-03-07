@@ -1,5 +1,5 @@
 sap.ui.define([], function () {
-  let shellHeaderObserver
+  let shellHeaderObserver;
   function lazyLogoPatcher () {
     if (shellHeaderObserver !== undefined) {
       shellHeaderObserver.disconnect();
@@ -7,7 +7,7 @@ sap.ui.define([], function () {
     const shellHeader = document.getElementById('shell-header');
     function setLogo () {
       if (!setLogo.inProgress) {
-        setLogo.inProgress = true
+        setLogo.inProgress = true;
         const companyLogo = document.getElementById('shell-header-icon');
         if (companyLogo) {
           companyLogo.setAttribute('src', 'ui5_orange.svg');

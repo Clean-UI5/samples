@@ -11,7 +11,7 @@ sap.ui.define([
         class="sapUiLargeMargin"
         text="{i18n>message}"
       />`;
-      const message = await this.i18n('message')
+      const message = await this.i18n('message');
       button.attachPress(() => MessageToast.show(message));
       this.byId('page').addContent(button);
     }

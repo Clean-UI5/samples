@@ -9,7 +9,7 @@ sap.ui.define([
   const FragmentControl = Control.extend('samples/util/FragmentControl', {
     metadata: {
       aggregations: {
-        _fragment: { type : "sap.ui.core.Control", multiple : false, visibility: "hidden" }
+        _fragment: { type: 'sap.ui.core.Control', multiple: false, visibility: 'hidden' }
       }
     },
 
@@ -26,7 +26,6 @@ sap.ui.define([
         controller: this
       })
         .then((fragment) => {
-          const PropertiesWrapper = getPropertiesWrapper(this.constructor);
           fragment.setModel(this[$thisModel], '$this');
           this.setAggregation('_fragment', fragment);
           this.invalidate();
@@ -41,13 +40,13 @@ sap.ui.define([
       this._inhSetProperty(name, value, this._suppressInvalidate);
     },
 
-    setProperty: function(name, value, suppressInvalidate) {
+    setProperty: function (name, value, suppressInvalidate) {
       this._suppressInvalidate = suppressInvalidate;
       this[$thisModel].setProperty('/' + name, value);
       delete this._suppressInvalidate;
     }
   });
-  
+
   FragmentControl.render = function (rm, control) {
     const fragment = control.getAggregation('_fragment');
     if (fragment) {
@@ -57,7 +56,7 @@ sap.ui.define([
 
   class FragmentControlPropertiesWrapper {
     _ctrl;
-      
+
     constructor (ctrl) {
       this._ctrl = ctrl;
     }
@@ -94,7 +93,7 @@ sap.ui.define([
   const nativeExtend = FragmentControl.extend;
   FragmentControl.extend = function (className, classInfo, metaImpl) {
     if (!classInfo.renderer) {
-      classInfo.renderer = 'samples/util/FragmentControl'
+      classInfo.renderer = 'samples/util/FragmentControl';
     }
     return nativeExtend.call(this, className, classInfo, metaImpl);
   };

@@ -15,7 +15,7 @@ sap.ui.require([
       this.enabled = value;
     }
   };
-    
+
   const TestController = MainController.extend('TestController', {
     constructor: function () {
       // DO NOT CALL PARENT CONSTRUCTOR
@@ -23,14 +23,14 @@ sap.ui.require([
       this.specialInstructions = new MockControl();
       this.acknowledgeSI = new MockControl();
       this.specialInstructionsAckInfo = new MockControl();
-    
+
       const controls = {
         finalizeReview: this.finalizeReview,
         siContent: this.specialInstructions,
         ackSI: this.acknowledgeSI,
         siAckInfo: this.specialInstructionsAckInfo
       };
-    
+
       this.byId = (id) => controls[id];
     },
 
@@ -40,7 +40,7 @@ sap.ui.require([
       };
     }
   });
-    
+
   QUnit.module('Special instructions handling', {
     beforeEach: function (assert) {
       this.controller = new TestController();
@@ -61,8 +61,8 @@ sap.ui.require([
 
   QUnit.test('Not a VIP customer', function (assert) {
     this.controller.onSalesOrderLoaded({
-        amount: 101,
-        customer: {
+      amount: 101,
+      customer: {
         vip: false
       },
       specialInstruction: null

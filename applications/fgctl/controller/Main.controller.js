@@ -30,13 +30,13 @@ sap.ui.define([
 
     onFirstValueChange: async function () {
       MessageToast.show(`${await this.i18n('firstControl.label')} : ${this.defaultModel.getProperty('/firstValue')}`, {
-        offset: `0 -90`
+        offset: '0 -90'
       });
     },
 
     onSecondValueChange: async function () {
       MessageToast.show(`${await this.i18n('secondControl.label')} : ${this.defaultModel.getProperty('/secondValue')}`, {
-        offset: `0 -30`
+        offset: '0 -30'
       });
     }
   });

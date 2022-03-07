@@ -11,5 +11,5 @@ sap.ui.define([
   ${xmlContent}
 </core:FragmentDefinition>`
     });
-  }
+  };
 });

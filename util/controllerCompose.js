@@ -7,7 +7,7 @@ sap.ui.define([], function () {
       onInits.push(onInit);
       onExits.push(onExit);
       Object.assign(definition, members);
-    })
+    });
     const initMethods = onInits.filter(Boolean);
     if (initMethods.length) {
       definition.onInit = function () {

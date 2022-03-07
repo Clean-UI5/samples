@@ -1,5 +1,5 @@
 sap.ui.define([
-  'sap/ui/model/json/JSONModel',
+  'sap/ui/model/json/JSONModel'
 ], function (JSONModel) {
   return class ViewState {
     #name
@@ -17,11 +17,11 @@ sap.ui.define([
     set name (value) {
       this.#name = value;
     }
-    
+
     get year () {
       return this.#year;
     }
-    
+
     set year (value) {
       this.#year = value;
       this.model.refresh();
@@ -30,7 +30,7 @@ sap.ui.define([
     get org () {
       return this.#org;
     }
-    
+
     set org (value) {
       this.#org = value;
       this.model.refresh();
@@ -39,11 +39,11 @@ sap.ui.define([
     get model () {
       return this.#model;
     }
-    
+
     constructor (org, year) {
       this.#org = org;
       this.#year = year;
       this.#model = new JSONModel(this);
     }
-  }
+  };
 });

@@ -2,7 +2,7 @@ sap.ui.require([
   'sap/ui/thirdparty/sinon-4',
   'samples/applications/gstate/Component'
 ], function (sinon, gstate) {
-  const xhr = sinon.useFakeXMLHttpRequest();
+  sinon.useFakeXMLHttpRequest();
   sinon.FakeXMLHttpRequest.useFilters = true;
   sinon.FakeXMLHttpRequest.addFilter((verb, url) => !url.includes('/mock/'));
 

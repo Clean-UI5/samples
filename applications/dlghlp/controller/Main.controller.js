@@ -13,7 +13,7 @@ sap.ui.define([
 
     onShow: asyncEventHandler(async function () {
       const result = await this._dialog.open();
-      MessageToast.show(`Dialog result is ${JSON.stringify(result)}`)
+      MessageToast.show(`Dialog result is ${JSON.stringify(result)}`);
     })
   });
 });

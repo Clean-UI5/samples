@@ -3,7 +3,7 @@ sap.ui.define([
   'samples/util/i18n',
   'samples/util/classModifiers/models',
   'samples/util/classModifiers/eventBus',
-  'samples/util/classModifiers/readOnlyProperties',
+  'samples/util/classModifiers/readOnlyProperties'
 ], function (Controller, i18n, models, eventBus, readOnlyProperties) {
   const BaseController = Controller.extend('samples.util.BaseController', {
     ...i18n

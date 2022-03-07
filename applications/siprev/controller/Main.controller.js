@@ -30,13 +30,13 @@ sap.ui.define([
 
     onMount: function () {
       this.defaultModel = this.objectModel;
-      this.view.bindElement('/')
+      this.view.bindElement('/');
       this.view.setModel(this.viewState, 'viewState');
     },
-  
+
     onUnmount: function () {
       this.defaultModel = new JSONModel({});
-      this.view.bindElement('/')
+      this.view.bindElement('/');
       this.view.setModel(new JSONModel({}), 'viewState');
     }
   });

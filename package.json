@@ -3,7 +3,8 @@
   "version": "1.0.0",
   "description": "Clean UI5 book samples",
   "scripts": {
-    "lint": "eslint ./**/*.js"
+    "jslint": "eslint ./**/*.js --rulesdir ./node_modules/@sap/di.code-validation.js/src/defaultConfig/fioriCustomRules/.eslintrules",
+    "xmllint": "node ./node_modules/@sap/di.code-validation.xml/src/xmlValidator.js"
   },
   "repository": {
     "type": "git",
@@ -27,11 +28,11 @@
     "@babel/preset-env": "^7.16.11",
     "@sap/di.code-validation.js": "^2.0.0",
     "@sap/di.code-validation.xml": "^1.1.28",
-    "eslint": "^7.32.0",
+    "eslint": "^8.10.0",
     "eslint-config-standard": "^16.0.3",
     "eslint-plugin-import": "^2.25.4",
     "eslint-plugin-node": "^11.1.0",
-    "eslint-plugin-promise": "^5.2.0",
+    "eslint-plugin-promise": "^6.0.0",
     "jsinspect": "^0.12.7"
   }
 }

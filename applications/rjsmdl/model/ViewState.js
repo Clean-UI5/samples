@@ -2,10 +2,10 @@ sap.ui.define([
   'sap/ui/model/json/JSONModel'
 ], function (JSONModel) {
   return class ViewState {
-    #name
-    #year
-    #org
-    #model
+    #name;
+    #year;
+    #org;
+    #model;
 
     get name () {
       if (this.#name) {

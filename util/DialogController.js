@@ -6,6 +6,7 @@ sap.ui.define([
   'samples/util/classModifiers/eventBus',
   'samples/util/classModifiers/readOnlyProperties',
   'samples/util/asyncEventHandler'
+// eslint-disable-next-line max-params
 ], function (ManagedObject, i18n, Fragment, models, eventBus, readOnlyProperties, asyncEventHandler) {
   const $dialog = Symbol('dialog');
   const $closed = Symbol('closed');

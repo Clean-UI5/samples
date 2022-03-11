@@ -3,6 +3,7 @@ sap.ui.define([
   'samples/applications/rjsmdl/model/ViewState',
   'samples/util/asyncEventHandler',
   'sap/m/MessageToast'
+// eslint-disable-next-line max-params
 ], function (BaseController, ViewState, asyncEventHandler, MessageToast) {
   return BaseController.extend('samples.applications.rjsmdl.controller.Main', {
     onInit: function () {

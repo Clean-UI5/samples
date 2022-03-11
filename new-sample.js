@@ -8,7 +8,7 @@ let tileId = 0;
 Object.keys(cdmConfig.groups).forEach((groupId) => {
   const group = cdmConfig.groups[groupId];
   const { id, title } = group.identification;
-  if ([id, title].map(s => s.toLowerCase()).includes(groupName.toLowerCase())) {
+  if ([id, title].map((s) => s.toLowerCase()).includes(groupName.toLowerCase())) {
     targetGroupId = groupId;
   }
   group.payload.tiles.forEach((tile) => {
@@ -110,7 +110,7 @@ function instantiate (
 ) {
   const content = readdirSync(templatePath);
   mkdirSync(appPath, { recursive: true });
-  content.forEach(fileName => {
+  content.forEach((fileName) => {
     const templateFileName = join(templatePath, fileName);
     const appFileName = join(appPath, fileName);
     const stat = statSync(templateFileName);

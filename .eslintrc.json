@@ -12,6 +12,7 @@
   },
   "rules": {
     "semi": ["error", "always"],
+    "arrow-parens": ["error", "always"],
     "max-params": ["error", 3],
     "sap-usage-basemastercontroller": "error",
     "sap-cross-application-navigation": "error",
@@ -45,7 +46,8 @@
     "sap-no-ui5base-prop": "error",
     "sap-no-ui5-prop-warning": "error",
     "sap-timeout-usage": "error",
-    "sap-ui5-no-private-prop": "error"
+    "sap-ui5-no-private-prop": "error",
+    "clean-ui5-no-module-extra": "error"
   },
   "globals": {
     "sap": false,

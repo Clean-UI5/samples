@@ -12,6 +12,7 @@
   },
   "rules": {
     "semi": ["error", "always"],
+    "max-params": ["error", 3],
     "sap-usage-basemastercontroller": "error",
     "sap-cross-application-navigation": "error",
     "sap-forbidden-window-property": "error",

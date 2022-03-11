@@ -4,6 +4,7 @@ sap.ui.define([
   'samples/util/classModifiers/models',
   'samples/util/classModifiers/eventBus',
   'samples/util/classModifiers/readOnlyProperties'
+// eslint-disable-next-line max-params
 ], function (Controller, i18n, models, eventBus, readOnlyProperties) {
   const BaseController = Controller.extend('samples.util.BaseController', {
     ...i18n

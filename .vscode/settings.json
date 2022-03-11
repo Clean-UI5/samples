@@ -1,7 +1,8 @@
 {
   "eslint.options": {
     "rulePaths": [
-      "./node_modules/@sap/di.code-validation.js/src/defaultConfig/fioriCustomRules/.eslintrules"
+      "./node_modules/@sap/di.code-validation.js/src/defaultConfig/fioriCustomRules/.eslintrules",
+      "./.eslintrules"
     ]
   }
 }

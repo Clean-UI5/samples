@@ -10,14 +10,13 @@ const defaultConfig = {
     //   extensions: ['.js', '.xsjs']
     // },
     '@sap/di.code-validation.xml': {
-      extensions: [ '.xml']
+      extensions: ['.xml']
     }
   }
-}
+};
 
 validation.executeForProject(projectDir, projectRootPath, new Config(defaultConfig), function (issues) {
-    var stringified = JSON.stringify(issues);
-    process.stdout.write(stringified);
-    fs.writeFileSync('di-code.validation.json', stringified);
-    process.exit(0);
+  const stringified = JSON.stringify(issues);
+  process.stdout.write(stringified);
+  fs.writeFileSync('di-code.validation.json', stringified);
 });

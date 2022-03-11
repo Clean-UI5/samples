@@ -3,6 +3,7 @@ sap.ui.define([
   'samples/util/asyncEventHandler',
   'samples/applications/dlghlp/dialog/ExampleDialog',
   'sap/m/MessageToast'
+// eslint-disable-next-line max-params
 ], function (BaseController, asyncEventHandler, ExampleDialog, MessageToast) {
   return BaseController.extend('samples.applications.dlghlp.controller.Main', {
     onInit: function () {

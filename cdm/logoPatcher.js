@@ -2,7 +2,7 @@ sap.ui.define([], function () {
   let shellHeaderObserver;
 
   // eslint-disable-next-line sap-no-dom-access
-  const byId = id => document.getElementById(id);
+  const byId = (id) => document.getElementById(id);
 
   function lazyLogoPatcher () {
     if (shellHeaderObserver !== undefined) {

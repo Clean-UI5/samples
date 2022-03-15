@@ -1,4 +1,13 @@
 sap.ui.define([], function () {
+  function wrap (methods, definition, member) {
+    const filteredMethods = methods.filter(Boolean);
+    if (filteredMethods.length) {
+      definition[member] = function () {
+        filteredMethods.forEach((method) => method.apply(this, arguments));
+      };
+    }
+  }
+
   return function controllerCompose (...parts) {
     const definition = {};
     const onInits = [];
@@ -8,18 +17,8 @@ sap.ui.define([], function () {
       onExits.push(onExit);
       Object.assign(definition, members);
     });
-    const initMethods = onInits.filter(Boolean);
-    if (initMethods.length) {
-      definition.onInit = function () {
-        initMethods.forEach((onInit) => onInit.apply(this, arguments));
-      };
-    }
-    const exitMethods = onExits.filter(Boolean);
-    if (exitMethods.length) {
-      definition.onExit = function () {
-        exitMethods.forEach((onExit) => onExit.apply(this, arguments));
-      };
-    }
+    wrap(onInits, definition, 'onInit');
+    wrap(onExits, definition, 'onExit');
     return definition;
   };
 });

@@ -15,6 +15,7 @@
     "arrow-parens": ["error", "always"],
     "max-params": ["error", 3],
     "complexity": ["error", 10],
+    "max-statements": ["error", 10, { "ignoreTopLevelFunctions": true }],
     "sap-usage-basemastercontroller": "error",
     "sap-cross-application-navigation": "error",
     "sap-forbidden-window-property": "error",

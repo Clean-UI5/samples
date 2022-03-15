@@ -1,0 +1,6 @@
+{
+    "threshold": 0,
+    "format": ["javascript", "xml"],
+    "reporters": ["html", "console"],
+    "ignore": ["./node_modules/**"]
+  }

@@ -64,13 +64,7 @@ sap.ui.define([
 
   const $PropertiesWrapper = Symbol('FragmentControlPropertiesWrapper');
 
-  function getPropertiesWrapper (Class) {
-    if (Class === FragmentControl) {
-      return FragmentControlPropertiesWrapper;
-    }
-    if (Class[$PropertiesWrapper]) {
-      return Class[$PropertiesWrapper];
-    }
+  function buildPropertiesWrapper (Class) {
     const metadata = Class.getMetadata();
     const BasePropertiesWrapper = getPropertiesWrapper(Class.getMetadata().getParent().getClass());
     class PropertiesWrapper extends BasePropertiesWrapper {};
@@ -86,8 +80,17 @@ sap.ui.define([
         })
       );
     }
-    Class[$PropertiesWrapper] = PropertiesWrapper;
     return PropertiesWrapper;
+  }
+
+  function getPropertiesWrapper (Class) {
+    if (Class === FragmentControl) {
+      return FragmentControlPropertiesWrapper;
+    }
+    if (!Class[$PropertiesWrapper]) {
+      Class[$PropertiesWrapper] = buildPropertiesWrapper(Class);
+    }
+    return Class[$PropertiesWrapper];
   }
 
   const nativeExtend = FragmentControl.extend;
@@ -97,6 +100,9 @@ sap.ui.define([
     }
     return nativeExtend.call(this, className, classInfo, metaImpl);
   };
+
+  const a = 1;
+  alert(a);
 
   return FragmentControl;
 });

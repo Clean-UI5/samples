@@ -10,8 +10,8 @@ sap.ui.define([
       manifest: 'json'
     },
 
-    init: function () {
-      UIComponent.prototype.init.call(this, arguments);
+    init: function (...args) {
+      UIComponent.prototype.init.apply(this, args);
       ++numberOfTimesOpened;
       this.defaultModel = {
         numberOfTimesOpened

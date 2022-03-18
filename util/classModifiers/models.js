@@ -3,25 +3,26 @@ sap.ui.define([
   'sap/ui/model/json/JSONModel'
 ], function (Model, JSONModel) {
   return function defaultModel (Class, modelsProvider) {
+    function toSAPUI5Model (model) {
+      if (model instanceof Model) {
+        return model;
+      }
+      return new JSONModel(model);
+    }
+
     if (modelsProvider) {
       Object.assign(Class.prototype, {
         getModel: function (name) {
           return modelsProvider.call(this).getModel(name);
         },
         setModel: function (model, name) {
-          if (!(model instanceof Model)) {
-            model = new JSONModel(model);
-          }
-          modelsProvider.call(this).setModel(model, name);
+          modelsProvider.call(this).setModel(toSAPUI5Model(model), name);
         }
       });
     } else {
       const inheritedSetModel = Class.prototype.setModel;
       Class.prototype.setModel = function (model, name) {
-        if (!(model instanceof Model)) {
-          model = new JSONModel(model);
-        }
-        inheritedSetModel.call(this, model, name);
+        inheritedSetModel.call(this, toSAPUI5Model(model), name);
       };
     }
     Object.defineProperty(Class.prototype, 'defaultModel', {

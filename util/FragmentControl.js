@@ -13,8 +13,8 @@ sap.ui.define([
       }
     },
 
-    constructor: function () {
-      Control.apply(this, arguments);
+    constructor: function (...args) {
+      Control.apply(this, args);
       const PropertiesWrapper = getPropertiesWrapper(this.constructor);
       this[$thisModel] = new JSONModel(new PropertiesWrapper(this));
     },

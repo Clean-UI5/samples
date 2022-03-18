@@ -2,8 +2,8 @@ sap.ui.define([], function () {
   function wrap (methods, definition, member) {
     const filteredMethods = methods.filter(Boolean);
     if (filteredMethods.length) {
-      definition[member] = function () {
-        filteredMethods.forEach((method) => method.apply(this, arguments));
+      definition[member] = function (...args) {
+        filteredMethods.forEach((method) => method.apply(this, args));
       };
     }
   }

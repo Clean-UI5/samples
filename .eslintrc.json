@@ -22,6 +22,7 @@
     "no-nested-ternary": "error",
     "no-inner-declarations": "error",
     "no-loop-func": "error",
+    "max-lines": ["error", { "max": 300, "skipBlankLines": true, "skipComments": true }],
     "prefer-rest-params": "error",
     "default-param-last": "error",
     "no-param-reassign": ["error", { "props": false }],

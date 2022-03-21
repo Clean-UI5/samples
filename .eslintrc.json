@@ -59,7 +59,8 @@
     "sap-no-ui5-prop-warning": "error",
     "sap-timeout-usage": "error",
     "sap-ui5-no-private-prop": "error",
-    "clean-ui5-no-module-extra": "error"
+    "clean-ui5-no-module-extra": "error",
+    "clean-ui5-fan-out": ["error", 7]
   },
   "globals": {
     "sap": false,

@@ -16,15 +16,22 @@ sap.ui.define([
     metadata: {
       properties: {
         view: { type: 'sap.ui.core.mvc.View' },
-        width: { type: 'sap.ui.core.CSSSize' },
-        height: { type: 'sap.ui.core.CSSSize' }
+        contentWidth: { type: 'sap.ui.core.CSSSize' },
+        contentHeight: { type: 'sap.ui.core.CSSSize' }
       }
     },
     ...i18n,
 
-    _setup: async function (dialog) {
-      this.getView().addDependent(dialog);
-      await this.onInit();
+    _fwdProperties: function (dialog) {
+      if (this.getContentWidth()) {
+        dialog.setContentWidth(this.getContentWidth());
+      }
+      if (this.getContentHeight()) {
+        dialog.setContentHeight(this.getContentHeight());
+      }
+    },
+
+    _attachEvents: function (dialog) {
       dialog.attachBeforeOpen(asyncEventHandler(async () => {
         await this.onBeforeOpen();
       }));
@@ -43,6 +50,13 @@ sap.ui.define([
         this.onExit();
         return inheritedExit.call(dialog);
       };
+    },
+
+    _setup: async function (dialog) {
+      this.getView().addDependent(dialog);
+      await this.onInit();
+      this._fwdProperties(dialog);
+      this._attachEvents(dialog);
     },
 
     _load: function () {
@@ -81,6 +95,10 @@ sap.ui.define([
       delete this[$result];
       dialog.open();
       return promise;
+    },
+
+    close: function () {
+      return this.dialog.close();
     },
 
     byId: function (id) {

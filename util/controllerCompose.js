@@ -15,6 +15,11 @@ sap.ui.define([], function () {
     parts.forEach(({ onInit, onExit, ...members }) => {
       onInits.push(onInit);
       onExits.push(onExit);
+      Object.keys(members).forEach((name) => {
+        if (Object.prototype.hasOwnProperty.call(definition, name)) {
+          throw new Error(`Conflict detected on property ${name}`);
+        }
+      });
       Object.assign(definition, members);
     });
     wrap(onInits, definition, 'onInit');

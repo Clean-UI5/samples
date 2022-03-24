@@ -20,12 +20,12 @@ sap.ui.define([
 
     onOK: function () {
       this.setResult(this.defaultModel.getData());
-      this.dialog.close();
+      this.close();
     },
 
     onCancel: function () {
       this.setResult(null);
-      this.dialog.close();
+      this.close();
     }
   });
 });

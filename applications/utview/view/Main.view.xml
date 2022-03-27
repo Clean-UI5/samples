@@ -1,5 +1,4 @@
 <mvc:View
-  controllerName="samples.applications.utview.controller.Main"
   xmlns:mvc="sap.ui.core.mvc"
   xmlns="sap.m"
   xmlns:core="sap.ui.core"

@@ -64,6 +64,7 @@
   },
   "globals": {
     "sap": false,
-    "QUnit": false
+    "QUnit": false,
+    "sinon": false
   }
 }

@@ -51,7 +51,8 @@
           "ctlcmp",
           "dlghlp",
           "gstate",
-          "utmsbx"
+          "utmsbx",
+          "intrfc"
         ]
       }
     }
@@ -213,6 +214,19 @@
           "target": {
             "appId": "samples.applications.utmsbx",
             "inboundId": "sample-utmsbx",
+            "parameters": {}
+          }
+        }
+      }
+    },
+    "intrfc": {
+      "vizType": "sap.ushell.StaticAppLauncher",
+      "businessApp": "samples.applications.intrfc",
+      "vizConfig": {
+        "sap.flp": {
+          "target": {
+            "appId": "samples.applications.intrfc",
+            "inboundId": "sample-intrfc",
             "parameters": {}
           }
         }
@@ -771,6 +785,52 @@
           "url": "applications/utmsbx"
         }
       }
+    },
+    "samples.applications.intrfc": {
+      "sap.app": {
+        "id": "samples.applications.intrfc",
+        "applicationVersion": {
+          "version": "1.0.0"
+        },
+        "title": "intrfc",
+        "subTitle": "Interface testing",
+        "crossNavigation": {
+          "inbounds": {
+            "sample-intrfc": {
+              "semanticObject": "sample",
+              "action": "intrfc",
+              "signature": {
+                "parameters": {},
+                "additionalParameters": "allowed"
+              }
+            }
+          }
+        }
+      },
+      "sap.ui5": {
+        "models": {},
+        "componentName": "samples.applications.intrfc"
+      },
+      "sap.flp": {
+        "businessApp": "samples.applications.intrfc",
+        "defaultLauncher": "sample-intrfc"
+      },
+      "sap.ui": {
+        "technology": "UI5",
+        "icons": {
+          "icon": "sap-icon://technical-object"
+        },
+        "deviceTypes": {
+          "desktop": true,
+          "tablet": true,
+          "phone": true
+        }
+      },
+      "sap.platform.runtime": {
+        "componentProperties": {
+          "url": "applications/intrfc"
+        }
+      }
     }
   },
   "groups": {
@@ -840,6 +900,10 @@
           {
             "id": "00012",
             "vizId": "utmsbx"
+          },
+          {
+            "id": "00013",
+            "vizId": "intrfc"
           }
         ],
         "links": [],

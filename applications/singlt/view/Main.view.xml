@@ -1,0 +1,14 @@
+<mvc:View
+  controllerName="samples.applications.singlt.controller.Main"
+  xmlns:mvc="sap.ui.core.mvc"
+  xmlns="sap.m"
+  displayBlock="true"
+>
+  <App>
+    <pages>
+      <Page id="page" title="{i18n>app.title}">
+        <Button text="{i18n>newAndAdd}" press="onNewAndAdd" />
+      </Page>
+    </pages>
+  </App>
+</mvc:View>

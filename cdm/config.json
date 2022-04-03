@@ -963,11 +963,11 @@
           },
           {
             "id": "00013",
-            "vizId": "intrfc"
+            "vizId": "singlt"
           },
           {
             "id": "00014",
-            "vizId": "singlt"
+            "vizId": "intrfc"
           }
         ],
         "links": [],

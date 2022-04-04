@@ -101,8 +101,5 @@ sap.ui.define([
     return nativeExtend.call(this, className, classInfo, metaImpl);
   };
 
-  const a = 1;
-  alert(a);
-
   return FragmentControl;
 });

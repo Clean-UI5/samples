@@ -20,7 +20,7 @@ sap.ui.define([
         contentHeight: { type: 'sap.ui.core.CSSSize' }
       }
     },
-    ...i18n,
+    i18n,
 
     _fwdProperties: function (dialog) {
       if (this.getContentWidth()) {

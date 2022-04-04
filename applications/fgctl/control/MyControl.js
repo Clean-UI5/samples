@@ -12,17 +12,20 @@ sap.ui.define([
       }
     },
 
-    onChange: function (event) {
+    /** @private */
+    _onChange: function (event) {
       if (event.getParameter('value') === '') {
         this.setValue('0');
       }
       this.fireChange();
     },
 
+    /** Increment the control value */
     inc: function () {
       this.setValue(parseInt(this.getValue() || '0', 10) + 1);
     },
 
+    /** Decrement the control value */
     dec: function () {
       this.setValue(parseInt(this.getValue() || '0', 10) - 1);
     }

@@ -22,7 +22,7 @@
     >
       <f:content>
         <Label text="{$this>/label}" />
-        <Input value="{$this>/value}" type="Number" change="onChange" showClearIcon="true" />
+        <Input value="{$this>/value}" type="Number" change="_onChange" showClearIcon="true" />
       </f:content>
     </f:SimpleForm>
   </VBox>

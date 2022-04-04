@@ -7,7 +7,7 @@ sap.ui.define([
 // eslint-disable-next-line max-params
 ], function (Controller, i18n, models, eventBus, readOnlyProperties) {
   const BaseController = Controller.extend('samples.util.BaseController', {
-    ...i18n
+    i18n
   });
 
   models(BaseController, function () { return this.view; });
